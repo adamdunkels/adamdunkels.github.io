@@ -1,0 +1,112 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #7f8c8d;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f5f7fa;
+}
+
+.view-link {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.view-link:hover {
+    background-color: #2980b9;
+}
+
+.rating-cell {
+    font-weight: bold;
+}
+
+/* Loading indicator styles */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    height: 120px;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(52, 152, 219, 0.3);
+    border-radius: 50%;
+    border-top-color: #3498db;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 10px;
+}
+
+#loading-message {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#loading-progress {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Hide the loading container when data is loaded */
+.loading-container.hidden {
+    display: none;
+}
