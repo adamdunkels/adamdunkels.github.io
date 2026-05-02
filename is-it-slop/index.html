@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Is it slop?</title>
+    <script type="module" crossorigin src="/assets/index-Dd1IhkLO.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DrSEdw9c.css">
+  </head>
+  <body>
+    <header>
+      <div class="header-top">
+        <h1>Is it slop?</h1>
+        <button id="suggest-toggle" type="button">Suggest a phrase</button>
+        <button id="settings-toggle" type="button" aria-label="Rule settings">Rules</button>
+      </div>
+      <p>What this is: a quick way to spot the patterns that make text look AI-generated to other people. It runs entirely in the browser. No data gets sent anywhere.</p>
+      <p>What this is not: a reliable AI detector. I am sure there are great ones out there, but this isn't one.</p>
+      <div id="sample-buttons" class="sample-buttons"></div>
+    </header>
+    <dialog id="suggest-dialog">
+      <form method="dialog">
+        <h3>Suggest a phrase</h3>
+        <label>
+          <span>Phrase</span>
+          <input type="text" id="suggest-phrase" placeholder="e.g. &quot;at the end of the day&quot;" required />
+        </label>
+        <fieldset>
+          <legend>This phrase should be...</legend>
+          <label><input type="radio" name="suggest-type" value="flag" checked /> Flagged as AI-sounding</label>
+          <label><input type="radio" name="suggest-type" value="allow" /> Allowed (false positive)</label>
+        </fieldset>
+        <div class="dialog-actions">
+          <button type="button" id="suggest-cancel">Cancel</button>
+          <button type="submit" id="suggest-submit">Open GitHub Issue</button>
+        </div>
+      </form>
+    </dialog>
+    <div id="settings-panel" class="settings-panel hidden">
+      <div class="settings-header">
+        <h3>Rule settings</h3>
+        <div class="severity-filters">
+          <label><input type="checkbox" data-severity="high" checked /> High</label>
+          <label><input type="checkbox" data-severity="medium" checked /> Medium</label>
+          <label><input type="checkbox" data-severity="low" checked /> Low</label>
+        </div>
+      </div>
+      <div id="rule-toggles"></div>
+    </div>
+    <main>
+      <section class="panel input-panel">
+        <div class="input-header">
+          <label for="input-text">Input</label>
+        </div>
+        <textarea id="input-text" placeholder="Paste text here..."></textarea>
+      </section>
+      <section class="panel results-panel">
+        <div class="results-header">
+          <h2>Results</h2>
+          <div id="summary"></div>
+        </div>
+        <div id="results"></div>
+        <div id="detail-panel" class="detail-panel hidden"></div>
+      </section>
+    </main>
+    <section class="output-panels hidden" id="output-panels">
+      <div class="panel cleaned-panel">
+        <div class="output-header">
+          <h2>Mechanical fixes applied</h2>
+          <button id="copy-cleaned" type="button">Copy text</button>
+        </div>
+        <div id="cleaned-text" class="output-text"></div>
+      </div>
+      <div class="panel prompt-panel">
+        <div class="output-header">
+          <h2>Prompt for remaining fixes</h2>
+          <button id="copy-prompt" type="button">Copy prompt</button>
+        </div>
+        <div id="prompt-text" class="output-text"></div>
+      </div>
+    </section>
+  </body>
+</html>
